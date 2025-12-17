@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrace | Standard Grade Passport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .timeline-line {
+            position: absolute;
+            left: 1.25rem;
+            top: 2rem;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+        .step-card {
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #d97706, #b45309);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Mobile-First Container -->
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-2xl relative overflow-hidden">
+        
+        <!-- Header / Hero Section -->
+        <div class="relative bg-gradient-to-br from-yellow-600 to-amber-600 text-white p-6 pb-12 rounded-b-[2.5rem] z-10 shadow-lg">
+            <!-- Brand & Live Status -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="text-xs font-bold tracking-[0.2em] opacity-90">ECOTRACE</div>
+                <div class="bg-white/20 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase flex items-center">
+                    <span class="w-1.5 h-1.5 bg-yellow-300 rounded-full mr-2 animate-pulse"></span> Authentic
+                </div>
+            </div>
+            
+            <div class="flex gap-5 items-center">
+                <!-- Product Icon -->
+                <div class="w-20 h-20 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center shadow-inner text-white text-3xl relative overflow-hidden">
+                    <i class="fas fa-tshirt z-10"></i>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold leading-tight mb-1">Everyday Cotton Tee</h1>
+                    <p class="text-yellow-100 text-xs font-medium mb-2">Batch: NOV-2025-MIX</p>
+                    <div class="inline-flex items-center gap-1.5 text-[10px] font-bold text-yellow-800 bg-yellow-100 px-2 py-1 rounded-md shadow-sm">
+                         <i class="fas fa-check-circle"></i> Verified Authentic
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consumer-Friendly Grade Badge -->
+            <div class="absolute -bottom-6 right-6 bg-white text-gray-800 w-24 h-20 rounded-xl flex flex-col items-center justify-center shadow-xl border-b-4 border-yellow-500">
+                <span class="text-[9px] font-bold text-gray-400 uppercase tracking-wide mb-0.5">Eco-Score</span>
+                <div class="flex items-baseline gap-0.5">
+                    <span class="text-3xl font-black text-yellow-600">B</span>
+                    <span class="text-[10px] text-gray-400 font-medium">/ A+</span>
+                </div>
+                <span class="text-[9px] font-bold text-yellow-600 bg-yellow-50 px-1.5 rounded mt-0.5">Good Start</span>
+            </div>
+        </div>
+
+        <!-- NEW: "Your Impact" Comparison Section -->
+        <div class="px-6 mt-10 mb-8">
+            <h3 class="text-sm font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-balance-scale-right text-yellow-600 mr-2"></i> How this product compares
+            </h3>
+            
+            <!-- Comparison Card 1: Water -->
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm mb-3">
+                <div class="flex justify-between items-end mb-2">
+                    <div class="text-xs font-bold text-gray-500 uppercase"><i class="fas fa-tint text-blue-400 mr-1"></i> Water Used</div>
+                    <div class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">You save 2,250 Liters!</div>
+                </div>
+                
+                <!-- Comparison Visual -->
+                <div class="space-y-3">
+                    <!-- This Product -->
+                    <div>
+                        <div class="flex justify-between text-[10px] font-semibold mb-1">
+                            <span>This Tee</span>
+                            <span>450 L</span>
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 w-[16%]"></div> <!-- 450 is ~16% of 2700 -->
+                        </div>
+                    </div>
+                    <!-- Industry Average -->
+                    <div>
+                        <div class="flex justify-between text-[10px] text-gray-400 mb-1">
+                            <span>Avg. Cotton Tee</span>
+                            <span>2,700 L</span>
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gray-300 w-full"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-400 mt-2 italic">Result: Better farming methods saved water.</p>
+            </div>
+
+            <!-- Comparison Card 2: Carbon -->
+            <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                <div class="flex justify-between items-end mb-2">
+                    <div class="text-xs font-bold text-gray-500 uppercase"><i class="fas fa-cloud text-gray-400 mr-1"></i> Carbon Footprint</div>
+                    <div class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded">1.3kg Higher than Avg</div>
+                </div>
+                
+                <!-- Comparison Visual -->
+                <div class="space-y-3">
+                    <!-- This Product -->
+                    <div>
+                        <div class="flex justify-between text-[10px] font-semibold mb-1">
+                            <span>This Tee</span>
+                            <span>6.8 kg CO2e</span>
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-orange-500 w-[100%]"></div> 
+                        </div>
+                    </div>
+                    <!-- Industry Average -->
+                    <div>
+                        <div class="flex justify-between text-[10px] text-gray-400 mb-1">
+                            <span>Avg. Cotton Tee</span>
+                            <span>5.5 kg CO2e</span>
+                        </div>
+                        <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gray-300 w-[80%]"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-400 mt-2 italic">Reason: Factory uses standard electricity (Coal mixed).</p>
+            </div>
+        </div>
+
+        <!-- RESTORED: Detailed Product History (Grade B Version) -->
+        <div class="px-6 pb-24">
+            <h2 class="text-lg font-bold text-gray-900 mb-6 flex items-center">
+                Full Lifecycle Journey
+                <span class="ml-2 text-[10px] font-normal text-white bg-gray-500 px-2 py-0.5 rounded-full">Seed to Waste</span>
+            </h2>
+
+            <div class="relative space-y-8 pl-2">
+                <div class="timeline-line bg-gradient-to-b from-yellow-200 via-gray-200 to-gray-100"></div>
+
+                <!-- Stage 0: The Seed (Mixed) -->
+                <div class="relative flex gap-4 step-card cursor-pointer group" onclick="toggleDetails('details-0')">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 border-4 border-white shadow-sm flex items-center justify-center z-10 text-yellow-600">
+                        <i class="fas fa-dna text-xs"></i>
+                    </div>
+                    <div class="flex-grow pt-1 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-gray-900 text-sm">Fibre & Seed</h3>
+                            <span class="text-[10px] text-gray-400 font-mono">STEP 01</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Conventional Cotton Blend</p>
+                        <div id="details-0" class="hidden mt-3 bg-gray-50 p-3 rounded-lg border border-gray-100 text-xs">
+                            <ul class="space-y-1 text-gray-600">
+                                <li><strong>Seed Variety:</strong> Hybrid BT Cotton</li>
+                                <li><strong>Genetic Purity:</strong> 95% Verified</li>
+                                <li><strong>Region:</strong> Vidarbha, Maharashtra</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 1: Farming (BCI - Better Cotton) -->
+                <div class="relative flex gap-4 step-card cursor-pointer group" onclick="toggleDetails('details-1')">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 border-4 border-white shadow-sm flex items-center justify-center z-10 text-yellow-600">
+                        <i class="fas fa-tractor text-xs"></i>
+                    </div>
+                    <div class="flex-grow pt-1 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-gray-900 text-sm">Farming</h3>
+                            <span class="text-[10px] text-gray-400 font-mono">STEP 02</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Better Cotton Initiative (BCI)</p>
+                        <div id="details-1" class="hidden mt-3 bg-gray-50 p-3 rounded-lg border border-gray-100 text-xs">
+                            <div class="flex items-center gap-1 mb-2 text-yellow-700 font-bold uppercase text-[10px]">
+                                <i class="fas fa-certificate"></i> BCI Mass Balance
+                            </div>
+                            <ul class="space-y-1 text-gray-600">
+                                <li><strong>Pesticides:</strong> Integrated Pest Management</li>
+                                <li><strong>Water:</strong> Rain-fed + Drip Irrigation</li>
+                                <li><strong>Harvest:</strong> Semi-Mechanized</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2: Processing (Grid Energy) -->
+                <div class="relative flex gap-4 step-card cursor-pointer group" onclick="toggleDetails('details-2')">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 border-4 border-white shadow-sm flex items-center justify-center z-10 text-gray-600">
+                        <i class="fas fa-industry text-xs"></i>
+                    </div>
+                    <div class="flex-grow pt-1 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-gray-900 text-sm">Spinning</h3>
+                            <span class="text-[10px] text-gray-400 font-mono">STEP 03</span>
+                        </div>
+                        <p class="text-xs text-gray-500">MahaSpin Mills, Nagpur</p>
+                        <div id="details-2" class="hidden mt-3 bg-gray-50 p-3 rounded-lg border border-gray-100 text-xs">
+                            <ul class="space-y-1 text-gray-600">
+                                <li><strong>Tech:</strong> Open End Spinning</li>
+                                <li><strong>Power:</strong> Grid Mix (Coal + 20% Solar)</li>
+                                <li><strong>Waste:</strong> Standard Industrial Disposal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 3: Dyeing (Standard/Legal) -->
+                <div class="relative flex gap-4 step-card cursor-pointer group" onclick="toggleDetails('details-3')">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 border-4 border-white shadow-sm flex items-center justify-center z-10 text-blue-600">
+                        <i class="fas fa-flask text-xs"></i>
+                    </div>
+                    <div class="flex-grow pt-1 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-gray-900 text-sm">Dyeing</h3>
+                            <span class="text-[10px] text-gray-400 font-mono">STEP 04</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Standard Dye Works</p>
+                        <div id="details-3" class="hidden mt-3 bg-gray-50 p-3 rounded-lg border border-gray-100 text-xs">
+                            <div class="flex items-center gap-1 mb-2 text-blue-700 font-bold uppercase text-[10px]">
+                                <i class="fas fa-check"></i> REACH Compliant
+                            </div>
+                            <ul class="space-y-1 text-gray-600">
+                                <li><strong>Method:</strong> Standard Vat Dyeing</li>
+                                <li><strong>Chemicals:</strong> EU REACH Legal Limits</li>
+                                <li><strong>Wastewater:</strong> ETP Treated (Standard)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Manufacturing (Legal Wage) -->
+                <div class="relative flex gap-4 step-card cursor-pointer group" onclick="toggleDetails('details-4')">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 border-4 border-white shadow-sm flex items-center justify-center z-10 text-orange-600">
+                        <i class="fas fa-users text-xs"></i>
+                    </div>
+                    <div class="flex-grow pt-1 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-gray-900 text-sm">Manufacturing</h3>
+                            <span class="text-[10px] text-gray-400 font-mono">STEP 05</span>
+                        </div>
+                        <p class="text-xs text-gray-500">City Garments, Mumbai</p>
+                        <div id="details-4" class="hidden mt-3 bg-gray-50 p-3 rounded-lg border border-gray-100 text-xs">
+                            <div class="flex items-center gap-1 mb-2 text-blue-700 font-bold uppercase text-[10px]">
+                                <i class="fas fa-clipboard-check"></i> Factory Audit Pass
+                            </div>
+                            <ul class="space-y-1 text-gray-600">
+                                <li><strong>Standard:</strong> ISO 9001 / Local Labor Laws</li>
+                                <li><strong>Wage:</strong> Legal Minimum Wage Compliant</li>
+                                <li><strong>Hours:</strong> Max 60h/week (with OT)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 5: Logistics (Diesel) -->
+                <div class="relative flex gap-4 step-card cursor-pointer group" onclick="toggleDetails('details-5')">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 border-4 border-white shadow-sm flex items-center justify-center z-10 text-gray-600">
+                        <i class="fas fa-truck text-xs"></i>
+                    </div>
+                    <div class="flex-grow pt-1 pb-4 border-b border-gray-100">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-gray-900 text-sm">Logistics</h3>
+                            <span class="text-[10px] text-gray-400 font-mono">STEP 06</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Road Transport</p>
+                        <div id="details-5" class="hidden mt-3 bg-gray-50 p-3 rounded-lg border border-gray-100 text-xs">
+                            <ul class="space-y-1 text-gray-600">
+                                <li><strong>Method:</strong> Standard Freight (Diesel)</li>
+                                <li><strong>Packaging:</strong> Recycled Plastic Blend</li>
+                                <li><strong>Offset:</strong> None</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consumer Care Section -->
+            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5 mb-6">
+                <h3 class="font-bold text-gray-800 text-sm mb-3 text-center">Extend Product Life</h3>
+                <div class="flex justify-around text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-500 mb-1 shadow-sm"><i class="fas fa-temperature-low"></i></div>
+                        <span class="text-[10px] text-gray-600 font-medium">Wash 30°</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-500 mb-1 shadow-sm"><i class="fas fa-wind"></i></div>
+                        <span class="text-[10px] text-gray-600 font-medium">Air Dry</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-500 mb-1 shadow-sm"><i class="fas fa-tshirt"></i></div>
+                        <span class="text-[10px] text-gray-600 font-medium">Repair</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESTORED: End of Life (Grade B Details) -->
+            <div class="bg-gray-800 text-white rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl"><i class="fas fa-recycle"></i></div>
+                <h3 class="font-bold mb-2 flex items-center z-10 relative">End-of-Life Options</h3>
+                <p class="text-xs text-gray-400 mb-4 z-10 relative">This product contains mixed materials.</p>
+                
+                <div class="space-y-3 z-10 relative">
+                    <!-- Option 1 -->
+                    <div class="flex items-center bg-gray-700 p-3 rounded-xl border border-gray-600">
+                        <div class="w-8 h-8 bg-blue-900 rounded-full flex items-center justify-center text-blue-400 mr-3 text-xs"><i class="fas fa-recycle"></i></div>
+                        <div>
+                            <div class="text-sm font-semibold">Textile Recycling</div>
+                            <div class="text-[10px] text-gray-400">Mechanical Recycling Only (Downcycling)</div>
+                        </div>
+                    </div>
+                     <!-- Option 2 -->
+                     <div class="flex items-center bg-gray-700 p-3 rounded-xl border border-gray-600 opacity-75">
+                        <div class="w-8 h-8 bg-red-900 rounded-full flex items-center justify-center text-red-400 mr-3 text-xs"><i class="fas fa-ban"></i></div>
+                        <div>
+                            <div class="text-sm font-semibold">Not Compostable</div>
+                            <div class="text-[10px] text-gray-400">Contains synthetic sewing threads</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-full mt-5 bg-white text-gray-900 font-bold py-2 rounded-lg text-xs hover:bg-gray-100 transition-colors">
+                    Find Drop-off Point <i class="fas fa-map-marker-alt ml-1"></i>
+                </button>
+            </div>
+
+            <div class="mt-8 text-center pb-8">
+                <p class="text-[10px] text-gray-400">Blockchain Hash: <span class="font-mono bg-gray-100 px-1 rounded text-gray-600">0x3f4...2b9c</span></p>
+                <p class="text-[9px] text-gray-300 mt-2">NIT Jalandhar Minor Project Phase 2</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Simple Toggle
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
